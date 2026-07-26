@@ -3,13 +3,7 @@ import type { YouTubeVideo } from "@/lib/youtube";
 import { VideoCard } from "./VideoCard";
 import { AdUnit } from "./AdUnit";
 
-export function VideoGrid({
-  videos,
-  withAds = true,
-}: {
-  videos: YouTubeVideo[];
-  withAds?: boolean;
-}) {
+export function VideoGrid({ videos, withAds = true }: { videos: YouTubeVideo[]; withAds?: boolean }) {
   if (videos.length === 0) return null;
   const items: ReactNode[] = [];
   videos.forEach((video, i) => {
@@ -23,8 +17,6 @@ export function VideoGrid({
     }
   });
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {items}
-    </div>
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{items}</div>
   );
 }
